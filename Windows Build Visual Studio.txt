@@ -1,0 +1,4 @@
+In the root of the repo to initialize the build do:
+`git clean -fxd && cmake -S . -B build -A x64 -DWIN32_LEAKCHECK=ON -DUSE_SHA1=HTTPS -DUSE_BUNDLED_ZLIB=ON`
+Then run:
+`cmake --build build --config Release`
