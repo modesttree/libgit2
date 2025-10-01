@@ -1,0 +1,5 @@
+Use Ubuntu 22 or latest, needs heimdal-dev, and libssl-dev package. Also needs clang, cmake, ninja.
+Generate build files via:
+`cmake -S . -B build -G Ninja -DUSE_HTTPS=OpenSSL -DREGEX_BACKEND=builtin -DUSE_LEAK_CHECKER=valgrind -DUSE_GSSAPI=OFF -DUSE_SSH=OFF -DDEBUG_STRICT_ALLOC=ON -DDEBUG_STRICT_OPEN=ON -DCMAKE_BUILD_TYPE=Release`
+Then cd into `build` directory and run `ninja`
+And the library files will the generated in that package.
