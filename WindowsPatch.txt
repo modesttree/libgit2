@@ -1,0 +1,17 @@
+diff --git a/src/libgit2/path.c b/src/libgit2/path.c
+index 4b584fb80..02d75edd7 100644
+--- a/src/libgit2/path.c
++++ b/src/libgit2/path.c
+@@ -291,9 +291,10 @@ GIT_INLINE(unsigned int) length_flags(
+ 	unsigned int flags)
+ {
+ #ifdef GIT_WIN32
+-	int allow = 0;
++	int allow = 1;
+ 
+-	if (repo &&
++	// MT: Disable git core.longpath check, have it always use long paths by default
++	if (0 && repo &&
+ 	    git_repository__configmap_lookup(&allow, repo, GIT_CONFIGMAP_LONGPATHS) < 0)
+ 		allow = 0;
+ 

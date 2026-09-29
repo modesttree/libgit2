@@ -1,3 +1,7 @@
+NOTE: Windows build for libgit2 is different from Linux, we want to disable core.longpath config read only on Windows.
+For this before making Windows build do `git apply WindowsPatch.txt`, make sure to not commit the changes from that patch.
+Also make sure that the Linux build does not contain those changes.
+
 In the root of the repo to initialize the build do:
 `git clean -fxd && cmake -S . -B build -A x64 -DWIN32_LEAKCHECK=ON -DUSE_SHA1=HTTPS -DUSE_BUNDLED_ZLIB=ON`
 Then run:
